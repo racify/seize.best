@@ -96,49 +96,49 @@ const allCommands = {
     "management": [
         {
             "name": "setlog",
-            "description": "No description given",
+            "description": "set the channel where moderation logs are posted",
             "arguments": "<channel>",
             "permissions": "Administrator"
         },
         {
             "name": "setwelcome",
-            "description": "No description given",
+            "description": "set the channel where welcome messages are sent",
             "arguments": "<channel>",
             "permissions": "Administrator"
         },
         {
             "name": "setgoodbye",
-            "description": "No description given",
+            "description": "set the channel where goodbye messages are sent",
             "arguments": "<channel>",
             "permissions": "Administrator"
         },
         {
             "name": "welcomemsg",
-            "description": "No description given",
+            "description": "set the message sent when a member joins",
             "arguments": "<message>",
             "permissions": "Administrator"
         },
         {
             "name": "goodbyemsg",
-            "description": "No description given",
+            "description": "set the message sent when a member leaves",
             "arguments": "<message>",
             "permissions": "Administrator"
         },
         {
             "name": "setstarboard",
-            "description": "No description given",
+            "description": "set the starboard channel and optional star threshold",
             "arguments": "<channel> [threshold]",
             "permissions": "Administrator"
         },
         {
             "name": "setautorole",
-            "description": "No description given",
+            "description": "set a role to automatically assign to new members",
             "arguments": "<role>",
             "permissions": "Administrator"
         },
         {
             "name": "settings",
-            "description": "No description given",
+            "description": "view the current server settings",
             "arguments": "none",
             "permissions": "Administrator"
         },
@@ -180,21 +180,21 @@ const allCommands = {
         },
         {
             "name": "lock",
-            "description": "No description given",
+            "description": "lock a channel so members cannot send messages",
             "arguments": "[channel]",
-            "permissions": "none"
+            "permissions": "Manage Channels"
         },
         {
             "name": "unlock",
-            "description": "No description given",
+            "description": "unlock a previously locked channel",
             "arguments": "[channel]",
-            "permissions": "none"
+            "permissions": "Manage Channels"
         },
         {
             "name": "slowmode",
-            "description": "No description given",
+            "description": "set the slowmode delay for a channel",
             "arguments": "<seconds> [channel]",
-            "permissions": "none"
+            "permissions": "Manage Channels"
         }
     ],
     "community": [
@@ -443,6 +443,68 @@ const allCommands = {
             "description": "play rock paper scissors against the bot",
             "arguments": "<choice>",
             "permissions": "none"
+        }
+    ],
+    "tickets": [
+        {
+            "name": "ticket",
+            "description": "show ticket system subcommands",
+            "arguments": "none",
+            "permissions": "none"
+        },
+        {
+            "name": "ticket setup",
+            "description": "configure the ticket system interactively (support role, category, log channel)",
+            "arguments": "none",
+            "permissions": "Administrator"
+        },
+        {
+            "name": "ticket panel",
+            "description": "post the open-a-ticket button panel in a channel",
+            "arguments": "[channel]",
+            "permissions": "Administrator"
+        },
+        {
+            "name": "ticket limit",
+            "description": "set the maximum number of open tickets per user",
+            "arguments": "<n>",
+            "permissions": "Administrator"
+        },
+        {
+            "name": "ticket add",
+            "description": "add a user to the current ticket channel",
+            "arguments": "<user>",
+            "permissions": "Support Role"
+        },
+        {
+            "name": "ticket remove",
+            "description": "remove a user from the current ticket channel",
+            "arguments": "<user>",
+            "permissions": "Support Role"
+        },
+        {
+            "name": "ticket rename",
+            "description": "rename the current ticket channel",
+            "arguments": "<name>",
+            "permissions": "Support Role"
+        },
+        {
+            "name": "ticket close",
+            "description": "close the ticket, save a transcript, and delete the channel",
+            "arguments": "[reason]",
+            "permissions": "Support Role"
+        },
+        {
+            "name": "ticket stats",
+            "description": "view ticket statistics for the server",
+            "arguments": "none",
+            "permissions": "Support Role"
+        },
+        {
+            "name": "ticket reset",
+            "description": "wipe all ticket records and configuration for the server",
+            "arguments": "none",
+            "permissions": "Administrator"
         }
     ]
 };
