@@ -1,7 +1,7 @@
 function init() {
     renderNav();
     renderCommands();
-    
+
     document.getElementById('searchInput').addEventListener('input', (e) => {
         renderCommands(document.querySelector('.category-pill.active')?.dataset.category || 'all', e.target.value.toLowerCase());
     });
@@ -10,13 +10,13 @@ function init() {
 function renderNav() {
     const nav = document.getElementById('categoryNav');
     const categories = Object.keys(allCommands);
-    
+
     // Add "all" category
     const allCount = Object.values(allCommands).flat().length;
     nav.innerHTML = `<div class="category-pill active" data-category="all">
         all <span>${allCount}</span>
     </div>`;
-    
+
     categories.forEach(cat => {
         nav.innerHTML += `<div class="category-pill" data-category="${cat}">
             ${cat} <span>${allCommands[cat].length}</span>
@@ -35,21 +35,21 @@ function renderNav() {
 function renderCommands(category = 'all', searchQuery = '') {
     const grid = document.getElementById('commandsGrid');
     grid.innerHTML = '';
-    
+
     let cmdsToRender = [];
     if (category === 'all') {
         cmdsToRender = Object.values(allCommands).flat();
     } else {
         cmdsToRender = allCommands[category] || [];
     }
-    
+
     if (searchQuery) {
-        cmdsToRender = cmdsToRender.filter(c => 
-            c.name.toLowerCase().includes(searchQuery) || 
+        cmdsToRender = cmdsToRender.filter(c =>
+            c.name.toLowerCase().includes(searchQuery) ||
             c.description.toLowerCase().includes(searchQuery)
         );
     }
-    
+
     cmdsToRender.forEach(cmd => {
         let argsHTML = '';
         if (cmd.arguments === 'none') {
@@ -59,7 +59,7 @@ function renderCommands(category = 'all', searchQuery = '') {
             const argsList = cmd.arguments.match(/<[^>]+>|\[[^\]]+\]|\S+/g) || [];
             argsHTML = argsList.map(arg => `<span class="pill">${arg.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</span>`).join('');
         }
-            
+
         grid.innerHTML += `
             <div class="command-card">
                 <div class="card-header">

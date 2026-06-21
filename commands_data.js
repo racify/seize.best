@@ -2,310 +2,550 @@ const allCommands = {
     "moderation": [
         {
             "name": "ban",
-            "description": "ban a user from the server",
+            "description": "Ban a user from the server",
             "arguments": "<user> [reason]",
             "permissions": "Ban Members"
         },
         {
             "name": "kick",
-            "description": "kick a user from the server",
+            "description": "Kick a user from the server",
             "arguments": "<user> [reason]",
             "permissions": "Kick Members"
         },
         {
             "name": "timeout",
-            "description": "timeout a user (e.g. 10m, 1h, 7d)",
+            "description": "Timeout a user (e.g. 10m, 1h, 7d)",
             "arguments": "<user> <duration> [reason]",
             "permissions": "none"
         },
         {
             "name": "warn",
-            "description": "warn a user",
+            "description": "Warn a user",
             "arguments": "<user> <reason>",
             "permissions": "Manage Messages"
         },
         {
             "name": "warnings",
-            "description": "view a user's warnings",
+            "description": "View a user's warnings",
             "arguments": "<user>",
             "permissions": "none"
         },
         {
             "name": "clearwarnings",
-            "description": "clear all warnings for a user",
+            "description": "Clear all warnings for a user",
             "arguments": "<user>",
             "permissions": "Manage Messages"
         },
         {
             "name": "delwarn",
-            "description": "delete a specific warning by ID",
+            "description": "Delete a specific warning by ID",
             "arguments": "<warning_id>",
             "permissions": "Manage Messages"
         },
         {
             "name": "purge",
-            "description": "delete a number of recent messages",
+            "description": "Delete a number of recent messages",
             "arguments": "<amount>",
             "permissions": "Manage Messages"
         },
         {
             "name": "antinuke",
-            "description": "toggle the antinuke system",
+            "description": "Toggle the antinuke system",
             "arguments": "none",
             "permissions": "Administrator"
         },
         {
             "name": "antiraid",
-            "description": "toggle the antiraid system",
+            "description": "Toggle the antiraid system",
             "arguments": "none",
             "permissions": "Administrator"
+        },
+        {
+            "name": "setup",
+            "description": "Automated server setup for moderation logs and jail channel",
+            "arguments": "none",
+            "permissions": "Administrator"
+        },
+        {
+            "name": "jail",
+            "description": "Strips roles and locks a user in the jail channel",
+            "arguments": "<user> [reason]",
+            "permissions": "Manage Roles"
+        },
+        {
+            "name": "unjail",
+            "description": "Restores a user's original roles",
+            "arguments": "<user>",
+            "permissions": "Manage Roles"
+        },
+        {
+            "name": "unban",
+            "description": "Unbans a user via ID",
+            "arguments": "<user_id> [reason]",
+            "permissions": "Ban Members"
+        },
+        {
+            "name": "softban",
+            "description": "Bans and immediately unbans to clear messages",
+            "arguments": "<user> [reason]",
+            "permissions": "Ban Members"
+        },
+        {
+            "name": "mute",
+            "description": "Mutes a member in text/voice",
+            "arguments": "<user> [reason]",
+            "permissions": "Manage Roles"
+        },
+        {
+            "name": "unmute",
+            "description": "Unmutes a member",
+            "arguments": "<user>",
+            "permissions": "Manage Roles"
+        },
+        {
+            "name": "banall",
+            "description": "Bans every single user currently in the server jail",
+            "arguments": "[reason]",
+            "permissions": "Ban Members"
+        },
+        {
+            "name": "multiban",
+            "description": "Bans multiple users simultaneously using a list of user IDs",
+            "arguments": "[user_ids...]",
+            "permissions": "Ban Members"
+        },
+        {
+            "name": "multikick",
+            "description": "Kicks multiple users simultaneously using a list of user IDs",
+            "arguments": "[user_ids...]",
+            "permissions": "Kick Members"
+        },
+        {
+            "name": "hardban",
+            "description": "Bans a user and doesn't let them get unbanned (owner / admin only)",
+            "arguments": "<user> [reason]",
+            "permissions": "Ban Members"
+        },
+        {
+            "name": "hide",
+            "description": "Strips Read Messages permission for @everyone in the channel",
+            "arguments": "[channel]",
+            "permissions": "none"
+        },
+        {
+            "name": "unhide",
+            "description": "Restores Read Messages permission for @everyone in the channel",
+            "arguments": "[channel]",
+            "permissions": "none"
+        },
+        {
+            "name": "history",
+            "description": "Shows an overview of bans, kicks, and jails for a member",
+            "arguments": "<user>",
+            "permissions": "none"
         }
     ],
     "automation": [
         {
             "name": "autoresponse",
-            "description": "manage auto-responses",
+            "description": "Manage auto-responses",
+            "arguments": "none",
+            "permissions": "Administrator"
+        },
+        {
+            "name": "autoresponse list",
+            "description": "List all auto-responses",
             "arguments": "none",
             "permissions": "Administrator"
         },
         {
             "name": "autoresponse remove",
-            "description": "remove an auto-response by ID",
+            "description": "Remove an auto-response by ID",
             "arguments": "<response_id>",
             "permissions": "Administrator"
         },
         {
-            "name": "autoresponse list",
-            "description": "list all auto-responses",
-            "arguments": "none",
-            "permissions": "Administrator"
-        },
-        {
             "name": "autoresponse add",
-            "description": "add a new auto-response",
+            "description": "Add a new auto-response",
             "arguments": "<content>",
             "permissions": "Administrator"
         },
         {
             "name": "autorole",
-            "description": "set a role to be given to new members automatically",
+            "description": "Set a role to be given to new members automatically",
             "arguments": "<role>",
+            "permissions": "Administrator"
+        },
+        {
+            "name": "automod",
+            "description": "Configure server automod settings",
+            "arguments": "none",
+            "permissions": "Administrator"
+        },
+        {
+            "name": "automod links",
+            "description": "Toggle link blocking",
+            "arguments": "<value>",
+            "permissions": "Administrator"
+        },
+        {
+            "name": "automod word",
+            "description": "Manage blacklisted words",
+            "arguments": "none",
             "permissions": "Administrator"
         }
     ],
     "management": [
         {
             "name": "setlog",
-            "description": "set the channel where moderation logs are posted",
+            "description": "No description given",
             "arguments": "<channel>",
             "permissions": "Administrator"
         },
         {
-            "name": "setwelcome",
-            "description": "set the channel where welcome messages are sent",
+            "name": "welcome",
+            "description": "Configure welcome settings",
+            "arguments": "none",
+            "permissions": "Administrator"
+        },
+        {
+            "name": "welcome channel",
+            "description": "Set welcome channel",
             "arguments": "<channel>",
             "permissions": "Administrator"
         },
         {
-            "name": "setgoodbye",
-            "description": "set the channel where goodbye messages are sent",
-            "arguments": "<channel>",
-            "permissions": "Administrator"
-        },
-        {
-            "name": "welcomemsg",
-            "description": "set the message sent when a member joins",
+            "name": "welcome message",
+            "description": "Set welcome message",
             "arguments": "<message>",
             "permissions": "Administrator"
         },
         {
-            "name": "goodbyemsg",
-            "description": "set the message sent when a member leaves",
+            "name": "goodbye",
+            "description": "Configure leave settings",
+            "arguments": "none",
+            "permissions": "Administrator"
+        },
+        {
+            "name": "goodbye message",
+            "description": "Set leave message",
             "arguments": "<message>",
+            "permissions": "Administrator"
+        },
+        {
+            "name": "goodbye channel",
+            "description": "Set leave channel",
+            "arguments": "<channel>",
             "permissions": "Administrator"
         },
         {
             "name": "setstarboard",
-            "description": "set the starboard channel and optional star threshold",
+            "description": "No description given",
             "arguments": "<channel> [threshold]",
             "permissions": "Administrator"
         },
         {
             "name": "setautorole",
-            "description": "set a role to automatically assign to new members",
+            "description": "No description given",
             "arguments": "<role>",
             "permissions": "Administrator"
         },
         {
             "name": "settings",
-            "description": "view the current server settings",
+            "description": "No description given",
             "arguments": "none",
             "permissions": "Administrator"
         },
         {
             "name": "prefix",
-            "description": "set the server prefix",
+            "description": "Set the server prefix",
             "arguments": "<new_prefix>",
             "permissions": "Administrator"
         },
         {
             "name": "alias",
-            "description": "manage server aliases",
+            "description": "Manage server aliases",
             "arguments": "none",
             "permissions": "Administrator"
         },
         {
-            "name": "alias remove",
-            "description": "remove a server command alias",
-            "arguments": "<alias_name>",
-            "permissions": "Administrator"
-        },
-        {
             "name": "alias add",
-            "description": "add a server command alias",
+            "description": "Add a server command alias",
             "arguments": "<alias_name> <command_target>",
             "permissions": "Administrator"
         },
         {
+            "name": "alias remove",
+            "description": "Remove a server command alias",
+            "arguments": "<alias_name>",
+            "permissions": "Administrator"
+        },
+        {
             "name": "role",
-            "description": "give or remove a role from a user",
+            "description": "Give or remove a role from a user",
             "arguments": "<member> <role>",
             "permissions": "Manage Roles"
         },
         {
             "name": "roleinfo",
-            "description": "view information about a role",
+            "description": "View information about a role",
             "arguments": "<role>",
             "permissions": "none"
         },
         {
             "name": "lock",
-            "description": "lock a channel so members cannot send messages",
+            "description": "No description given",
             "arguments": "[channel]",
-            "permissions": "Manage Channels"
+            "permissions": "none"
         },
         {
             "name": "unlock",
-            "description": "unlock a previously locked channel",
+            "description": "No description given",
             "arguments": "[channel]",
-            "permissions": "Manage Channels"
+            "permissions": "none"
         },
         {
             "name": "slowmode",
-            "description": "set the slowmode delay for a channel",
+            "description": "No description given",
             "arguments": "<seconds> [channel]",
-            "permissions": "Manage Channels"
+            "permissions": "none"
+        },
+        {
+            "name": "embed",
+            "description": "Interactive embed builder",
+            "arguments": "none",
+            "permissions": "Manage Messages"
+        },
+        {
+            "name": "embed json",
+            "description": "Parse raw JSON code into embed",
+            "arguments": "<data>",
+            "permissions": "Manage Messages"
+        },
+        {
+            "name": "embed send",
+            "description": "Sends compiled draft embed",
+            "arguments": "none",
+            "permissions": "Manage Messages"
+        },
+        {
+            "name": "embed desc",
+            "description": "Set description body of your draft embed",
+            "arguments": "<text>",
+            "permissions": "Manage Messages"
+        },
+        {
+            "name": "embed create",
+            "description": "Starts draft embed builder",
+            "arguments": "none",
+            "permissions": "Manage Messages"
+        },
+        {
+            "name": "embed footer",
+            "description": "Add footer text to your draft embed",
+            "arguments": "<text>",
+            "permissions": "Manage Messages"
+        },
+        {
+            "name": "embed title",
+            "description": "Set title of your draft embed",
+            "arguments": "<text>",
+            "permissions": "Manage Messages"
+        },
+        {
+            "name": "embed color",
+            "description": "Set side strip color of the embed",
+            "arguments": "<hex_color>",
+            "permissions": "Manage Messages"
+        },
+        {
+            "name": "logs",
+            "description": "Manage logging settings",
+            "arguments": "none",
+            "permissions": "Administrator"
+        },
+        {
+            "name": "logs toggle",
+            "description": "Toggle log events",
+            "arguments": "<event>",
+            "permissions": "Administrator"
+        },
+        {
+            "name": "logs channel",
+            "description": "Set logging channel",
+            "arguments": "<channel>",
+            "permissions": "Administrator"
+        },
+        {
+            "name": "steal",
+            "description": "Adds an emoji from another server directly to yours",
+            "arguments": "<emoji> [name]",
+            "permissions": "none"
+        },
+        {
+            "name": "channelinfo",
+            "description": "Displays exact creation parameters and channel ID",
+            "arguments": "[channel]",
+            "permissions": "none"
+        },
+        {
+            "name": "membercount",
+            "description": "Displays breakdown of total members, humans, and bots",
+            "arguments": "none",
+            "permissions": "none"
+        },
+        {
+            "name": "customize",
+            "description": "Customize the bot's profile picture for this server. Use ',customize reset' to restore default.",
+            "arguments": "[option_or_url]",
+            "permissions": "Administrator"
         }
     ],
     "community": [
         {
             "name": "ping",
-            "description": "check the bot's latency",
+            "description": "Check the bot's latency",
             "arguments": "none",
             "permissions": "none"
         },
         {
             "name": "uptime",
-            "description": "check how long the bot has been online",
+            "description": "Check how long the bot has been online",
             "arguments": "none",
             "permissions": "none"
         },
         {
             "name": "invite",
-            "description": "get the bot's invite link",
+            "description": "Get the bot's invite link",
             "arguments": "none",
             "permissions": "none"
         },
         {
             "name": "botinfo",
-            "description": "get information about the bot",
+            "description": "Get information about the bot",
             "arguments": "none",
             "permissions": "none"
         },
         {
             "name": "userinfo",
-            "description": "get information about a user",
+            "description": "Get information about a user",
             "arguments": "[member]",
             "permissions": "none"
         },
         {
             "name": "serverinfo",
-            "description": "get information about the server",
+            "description": "Get information about the server",
             "arguments": "none",
             "permissions": "none"
         },
         {
             "name": "avatar",
-            "description": "get a user's avatar",
+            "description": "Get a user's avatar",
             "arguments": "[member]",
             "permissions": "none"
         },
         {
             "name": "banner",
-            "description": "get a user's banner",
+            "description": "Get a user's banner",
             "arguments": "[member]",
+            "permissions": "none"
+        },
+        {
+            "name": "invites",
+            "description": "Shows the server invite leaderboard",
+            "arguments": "none",
+            "permissions": "none"
+        },
+        {
+            "name": "userinvites",
+            "description": "Shows how many people a specific user has invited",
+            "arguments": "[user]",
+            "permissions": "none"
+        },
+        {
+            "name": "boosters",
+            "description": "Displays a list of all active server nitro boosters",
+            "arguments": "none",
+            "permissions": "none"
+        },
+        {
+            "name": "names",
+            "description": "Displays historical nickname changes for a user",
+            "arguments": "[user]",
             "permissions": "none"
         }
     ],
     "economy": [
         {
             "name": "open",
-            "description": "open a bank account",
+            "description": "Open a bank account",
             "arguments": "none",
             "permissions": "none"
         },
         {
             "name": "balance",
-            "description": "check your or someone else's balance",
+            "description": "Check your or someone else's balance",
             "arguments": "[user]",
             "permissions": "none"
         },
         {
             "name": "daily",
-            "description": "claim your daily reward",
+            "description": "Claim your daily reward",
             "arguments": "none",
             "permissions": "none"
         },
         {
             "name": "work",
-            "description": "work to earn some coins",
+            "description": "Work to earn some coins",
             "arguments": "none",
             "permissions": "none"
         },
         {
             "name": "deposit",
-            "description": "deposit coins into your bank",
+            "description": "Deposit coins into your bank",
             "arguments": "<amount>",
             "permissions": "none"
         },
         {
             "name": "withdraw",
-            "description": "withdraw coins from your bank",
+            "description": "Withdraw coins from your bank",
             "arguments": "<amount>",
             "permissions": "none"
         },
         {
             "name": "pay",
-            "description": "pay someone coins from your wallet",
+            "description": "Pay someone coins from your wallet",
             "arguments": "<user> <amount>",
             "permissions": "none"
         },
         {
             "name": "rob",
-            "description": "attempt to rob someone's wallet",
+            "description": "Attempt to rob someone's wallet",
             "arguments": "<user>",
             "permissions": "none"
         },
         {
             "name": "leaderboard",
-            "description": "view the top wealthiest users",
+            "description": "View the top wealthiest users",
             "arguments": "none",
             "permissions": "none"
         },
         {
             "name": "givemoney",
-            "description": "spawn money into someone's account (owner only)",
+            "description": "Spawn money into someone's account (owner only)",
             "arguments": "<user> <amount>",
+            "permissions": "none"
+        },
+        {
+            "name": "shop",
+            "description": "Opens the server store",
+            "arguments": "none",
+            "permissions": "none"
+        },
+        {
+            "name": "buy",
+            "description": "Buys an item from the shop",
+            "arguments": "<item>",
             "permissions": "none"
         }
     ],
@@ -339,24 +579,36 @@ const allCommands = {
             "description": "play mines to multiply your coins",
             "arguments": "<amount> [mines]",
             "permissions": "none"
+        },
+        {
+            "name": "scratch",
+            "description": "Buys a scratch-off card for 500 coins",
+            "arguments": "none",
+            "permissions": "none"
+        },
+        {
+            "name": "dice",
+            "description": "Rolls two dice for cash (bet against the bot)",
+            "arguments": "<amount>",
+            "permissions": "none"
         }
     ],
     "social": [
         {
             "name": "roblox",
-            "description": "look up a roblox user by username",
+            "description": "Look up a Roblox user by username",
             "arguments": "<username>",
             "permissions": "none"
         },
         {
             "name": "github",
-            "description": "look up a github user by username",
+            "description": "Look up a GitHub user by username",
             "arguments": "<username>",
             "permissions": "none"
         },
         {
             "name": "x",
-            "description": "look up an x/twitter profile",
+            "description": "Look up an X/Twitter profile",
             "arguments": "<username>",
             "permissions": "none"
         }
@@ -373,6 +625,54 @@ const allCommands = {
             "description": "setup the join to create voice channel system",
             "arguments": "none",
             "permissions": "Administrator"
+        },
+        {
+            "name": "vc",
+            "description": "Voice channel controller",
+            "arguments": "none",
+            "permissions": "none"
+        },
+        {
+            "name": "vc reject",
+            "description": "Reject user from voice channel",
+            "arguments": "<user>",
+            "permissions": "none"
+        },
+        {
+            "name": "vc claim",
+            "description": "Claim ownership of empty voice channel",
+            "arguments": "none",
+            "permissions": "none"
+        },
+        {
+            "name": "vc lock",
+            "description": "Lock your temporary voice channel",
+            "arguments": "none",
+            "permissions": "none"
+        },
+        {
+            "name": "vc name",
+            "description": "Change voice channel name",
+            "arguments": "<name>",
+            "permissions": "none"
+        },
+        {
+            "name": "vc permit",
+            "description": "Permit user to join locked channel",
+            "arguments": "<user>",
+            "permissions": "none"
+        },
+        {
+            "name": "vc limit",
+            "description": "Set user limit for your channel",
+            "arguments": "<limit>",
+            "permissions": "none"
+        },
+        {
+            "name": "vc unlock",
+            "description": "Unlock your temporary voice channel",
+            "arguments": "none",
+            "permissions": "none"
         }
     ],
     "vanity": [
@@ -383,14 +683,26 @@ const allCommands = {
             "permissions": "Administrator"
         },
         {
-            "name": "vanity setrole",
+            "name": "vanity set",
+            "description": "set the vanity text to check for in custom statuses",
+            "arguments": "<text>",
+            "permissions": "Administrator"
+        },
+        {
+            "name": "vanity channel",
+            "description": "set the channel for thank-you messages",
+            "arguments": "<channel>",
+            "permissions": "Administrator"
+        },
+        {
+            "name": "vanity role",
             "description": "set the role to give to users with the vanity text",
             "arguments": "<role>",
             "permissions": "Administrator"
         },
         {
-            "name": "vanity settext",
-            "description": "set the vanity text to check for in custom statuses",
+            "name": "vanity message",
+            "description": "set the thank-you message",
             "arguments": "<text>",
             "permissions": "Administrator"
         }
@@ -398,111 +710,171 @@ const allCommands = {
     "fun": [
         {
             "name": "coinflip",
-            "description": "flip a coin",
+            "description": "Flip a coin",
             "arguments": "none",
             "permissions": "none"
         },
         {
             "name": "roll",
-            "description": "roll a dice (1-6)",
+            "description": "Roll a dice (1-6)",
             "arguments": "none",
             "permissions": "none"
         },
         {
             "name": "ship",
-            "description": "calculate the compatibility between two users",
+            "description": "Calculate the compatibility between two users",
             "arguments": "<user1> [user2]",
             "permissions": "none"
         },
         {
             "name": "howgay",
-            "description": "check how gay a user is",
+            "description": "Check how gay a user is",
             "arguments": "[member]",
             "permissions": "none"
         },
         {
             "name": "ppsize",
-            "description": "check a user's pp size",
+            "description": "Check a user's pp size",
             "arguments": "[member]",
             "permissions": "none"
         },
         {
             "name": "joke",
-            "description": "tell a random joke",
+            "description": "Tell a random joke",
             "arguments": "none",
             "permissions": "none"
         },
         {
             "name": "8ball",
-            "description": "ask the magic 8 ball a question",
+            "description": "Ask the magic 8 ball a question",
             "arguments": "<question>",
             "permissions": "none"
         },
         {
             "name": "rps",
-            "description": "play rock paper scissors against the bot",
+            "description": "Play rock paper scissors against the bot",
             "arguments": "<choice>",
+            "permissions": "none"
+        },
+        {
+            "name": "blacktea",
+            "description": "Starts a word elimination game",
+            "arguments": "none",
+            "permissions": "none"
+        },
+        {
+            "name": "poll",
+            "description": "Creates a quick reaction poll",
+            "arguments": "<question>",
+            "permissions": "none"
+        },
+        {
+            "name": "quote",
+            "description": "Quotes a user's message",
+            "arguments": "<member> <text>",
+            "permissions": "none"
+        },
+        {
+            "name": "slap",
+            "description": "Sends a slap gif reaction to a member",
+            "arguments": "<member>",
+            "permissions": "none"
+        },
+        {
+            "name": "hug",
+            "description": "Sends a hug gif reaction to a member",
+            "arguments": "<member>",
+            "permissions": "none"
+        },
+        {
+            "name": "kiss",
+            "description": "Sends a kiss gif reaction to a member",
+            "arguments": "<member>",
+            "permissions": "none"
+        },
+        {
+            "name": "pat",
+            "description": "Sends a headpat gif reaction to a member",
+            "arguments": "<member>",
+            "permissions": "none"
+        },
+        {
+            "name": "punch",
+            "description": "Sends a punch gif reaction to a member",
+            "arguments": "<member>",
+            "permissions": "none"
+        },
+        {
+            "name": "cry",
+            "description": "Sends an expression gif representing crying",
+            "arguments": "none",
+            "permissions": "none"
+        },
+        {
+            "name": "laugh",
+            "description": "Sends an expression gif representing laughing",
+            "arguments": "none",
             "permissions": "none"
         }
     ],
     "tickets": [
         {
             "name": "ticket",
-            "description": "show ticket system subcommands",
+            "description": "Ticket system management",
             "arguments": "none",
             "permissions": "none"
         },
         {
-            "name": "ticket setup",
-            "description": "configure the ticket system interactively (support role, category, log channel)",
-            "arguments": "none",
-            "permissions": "Administrator"
-        },
-        {
-            "name": "ticket panel",
-            "description": "post the open-a-ticket button panel in a channel",
-            "arguments": "[channel]",
-            "permissions": "Administrator"
+            "name": "ticket rename",
+            "description": "Rename this ticket channel",
+            "arguments": "<name>",
+            "permissions": "none"
         },
         {
             "name": "ticket limit",
-            "description": "set the maximum number of open tickets per user",
+            "description": "Set the max number of open tickets per user",
             "arguments": "<n>",
             "permissions": "Administrator"
         },
         {
-            "name": "ticket add",
-            "description": "add a user to the current ticket channel",
-            "arguments": "<user>",
-            "permissions": "Support Role"
+            "name": "ticket stats",
+            "description": "Show ticket statistics for this server",
+            "arguments": "none",
+            "permissions": "none"
         },
         {
             "name": "ticket remove",
-            "description": "remove a user from the current ticket channel",
+            "description": "Remove a user from this ticket channel",
             "arguments": "<user>",
-            "permissions": "Support Role"
+            "permissions": "none"
         },
         {
-            "name": "ticket rename",
-            "description": "rename the current ticket channel",
-            "arguments": "<name>",
-            "permissions": "Support Role"
+            "name": "ticket panel",
+            "description": "Post the ticket panel in a channel",
+            "arguments": "[channel]",
+            "permissions": "Administrator"
         },
         {
             "name": "ticket close",
-            "description": "close the ticket, save a transcript, and delete the channel",
+            "description": "Close this ticket",
             "arguments": "[reason]",
-            "permissions": "Support Role"
+            "permissions": "none"
         },
         {
-            "name": "ticket stats",
-            "description": "view ticket statistics for the server",
+            "name": "ticket add",
+            "description": "Add a user to this ticket channel",
+            "arguments": "<user>",
+            "permissions": "none"
+        },
+        {
+            "name": "ticket setup",
+            "description": "Configure the ticket system interactively",
             "arguments": "none",
-            "permissions": "Support Role"
+            "permissions": "Administrator"
         },
         {
             "name": "ticket reset",
-            "description": "wipe all ticket records and configuration for the server",
+            "description": "Wipe all ticket data and config for this server",
             "arguments": "none",
             "permissions": "Administrator"
         }
