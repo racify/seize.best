@@ -773,48 +773,6 @@ const allCommands = {
             "description": "Quotes a user's message",
             "arguments": "<member> <text>",
             "permissions": "none"
-        },
-        {
-            "name": "slap",
-            "description": "Sends a slap gif reaction to a member",
-            "arguments": "<member>",
-            "permissions": "none"
-        },
-        {
-            "name": "hug",
-            "description": "Sends a hug gif reaction to a member",
-            "arguments": "<member>",
-            "permissions": "none"
-        },
-        {
-            "name": "kiss",
-            "description": "Sends a kiss gif reaction to a member",
-            "arguments": "<member>",
-            "permissions": "none"
-        },
-        {
-            "name": "pat",
-            "description": "Sends a headpat gif reaction to a member",
-            "arguments": "<member>",
-            "permissions": "none"
-        },
-        {
-            "name": "punch",
-            "description": "Sends a punch gif reaction to a member",
-            "arguments": "<member>",
-            "permissions": "none"
-        },
-        {
-            "name": "cry",
-            "description": "Sends an expression gif representing crying",
-            "arguments": "none",
-            "permissions": "none"
-        },
-        {
-            "name": "laugh",
-            "description": "Sends an expression gif representing laughing",
-            "arguments": "none",
-            "permissions": "none"
         }
     ],
     "tickets": [
