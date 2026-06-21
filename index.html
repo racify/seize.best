@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <title>seize | the all-in-one discord bot</title>
+    <meta name="description"
+        content="A premium Discord bot giving you the resources to create a powerful and versatile community at the tip of your fingers." />
+
+    
+    <meta property="og:title" content="seize" />
+    <meta property="og:description"
+        content="a premium discord bot giving you the resources to create a powerful and versatile community at the tip of your fingers." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://seize.best/" />
+    <meta property="og:image" content="https://seize.best/seize%20bot%20logo.jpg" />
+    <meta name="theme-color" content="#783838" />
+
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="landing-page">
+    
+    <div id="page-loader">
+        <img src="seize bot logo.jpg" alt="Loading" class="loader-img">
+    </div>
+
+    
+    <div class="bg-glow"></div>
+
+    
+    <div class="nav-wrapper">
+        <nav class="nav-bar">
+            <div class="nav-left">
+                <a href="index.html" class="nav-brand">
+                    <img src="seize bot logo.jpg" alt="Seize Logo" class="nav-logo-img">
+                </a>
+            </div>
+            <div class="nav-center">
+                <a href="commands.html" class="nav-link">Commands</a>
+                <a href="support.html" class="nav-link">Support</a>
+            </div>
+            <div class="nav-right">
+                <a href="https://discord.com/oauth2/authorize?client_id=1511857662759796886&scope=bot+applications.commands&permissions=8"
+                    class="nav-invite-btn" id="nav-invite-btn">
+                    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                        fill="currentColor">
+                        <path
+                            d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z" />
+                    </svg>
+                    <span>Invite</span>
+                </a>
+            </div>
+        </nav>
+    </div>
+
+    
+    <section class="hero" id="hero">
+        <div class="hero-inner">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    take control of your server with <span class="gradient-text">seize</span>
+                </h1>
+                <p class="hero-subtitle">
+                    An all-in-one Discord bot built to protect your server, manage members, and automate your community.
+                </p>
+                <div class="hero-buttons">
+                    <a href="https://discord.com/oauth2/authorize?client_id=1511857662759796886&scope=bot+applications.commands&permissions=8"
+                        class="btn btn-primary" id="hero-invite-btn">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                            fill="currentColor">
+                            <path
+                                d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z" />
+                        </svg>
+                        Invite to Discord
+                    </a>
+                    <a href="commands.html" class="btn btn-secondary" id="hero-explore-btn">
+                        Explore
+                        <svg width="18" height="18" viewBox="0 0 24 24" stroke-width="2" fill="none"
+                            xmlns="http://www.w3.org/2000/svg" color="currentColor">
+                            <path d="M9 6L15 12L9 18" stroke="currentColor" stroke-linecap="round"
+                                stroke-linejoin="round"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            
+            <div class="hero-interactive-container">
+                <div class="hero-logo-center">
+                    <img src="seize bot logo.jpg" alt="Seize Bot" class="hero-center-logo">
+                </div>
+
+
+                <div class="floating-pill pill-top-left" style="--float-delay: 0s; --float-duration: 6s;">
+                    <span class="pill-icon"><i class="fa-solid fa-shield-halved"></i></span>
+                    <span class="pill-label">moderation</span>
+                </div>
+                <div class="floating-pill pill-top-right" style="--float-delay: 1.5s; --float-duration: 7s;">
+                    <span class="pill-icon"><i class="fa-solid fa-microphone-lines"></i></span>
+                    <span class="pill-label">voicemaster</span>
+                </div>
+                <div class="floating-pill pill-bottom-left" style="--float-delay: 3s; --float-duration: 5.5s;">
+                    <span class="pill-icon"><i class="fa-solid fa-coins"></i></span>
+                    <span class="pill-label">economy</span>
+                </div>
+                <div class="floating-pill pill-bottom-right" style="--float-delay: 0.8s; --float-duration: 6.5s;">
+                    <span class="pill-icon"><i class="fa-solid fa-bolt"></i></span>
+                    <span class="pill-label">automations</span>
+                </div>
+                <div class="floating-pill pill-center-bottom" style="--float-delay: 2.2s; --float-duration: 8s;">
+                    <span class="pill-icon"><i class="fa-solid fa-ticket"></i></span>
+                    <span class="pill-label">tickets</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="features" id="features">
+        <div class="features-container">
+            <div class="section-label">
+
+            </div>
+            <h2 class="section-title">Features</h2>
+            <p class="section-subtitle">No complicated setups. It just works.</p>
+
+            <div class="features-grid">
+                <div class="feature-card feature-card-large">
+                    <div class="feature-card-icon">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3>Premium Moderation</h3>
+                    <p>Automated anti-raid, warnings, jail rooms, and ban management.</p>
+                    <div class="feature-commands">
+                        <span class="feature-cmd">ban</span>
+                        <span class="feature-cmd">jail</span>
+                        <span class="feature-cmd">warn</span>
+                        <span class="feature-cmd">mute</span>
+                        <span class="feature-cmd">hardban</span>
+                        <span class="feature-cmd-more">+ more</span>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-card-icon">
+                        <i class="fa-solid fa-coins"></i>
+                    </div>
+                    <h3>Global Economy</h3>
+                    <p>Vault banking, daily rewards, jobs, and wire transfers.</p>
+                    <div class="feature-commands">
+                        <span class="feature-cmd">balance</span>
+                        <span class="feature-cmd">daily</span>
+                        <span class="feature-cmd">rob</span>
+                        <span class="feature-cmd-more">+ more</span>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-card-icon">
+                        <i class="fa-solid fa-dice"></i>
+                    </div>
+                    <h3>Casino</h3>
+                    <p>Blackjack, slots, roulette, mines, and dice games.</p>
+                    <div class="feature-commands">
+                        <span class="feature-cmd">blackjack</span>
+                        <span class="feature-cmd">mines</span>
+                        <span class="feature-cmd">slots</span>
+                        <span class="feature-cmd-more">+ more</span>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-card-icon">
+                        <i class="fa-solid fa-microphone-lines"></i>
+                    </div>
+                    <h3>Voicemaster</h3>
+                    <p>Dynamic voice channels controlled via button menus.</p>
+                    <div class="feature-commands">
+                        <span class="feature-cmd">lock</span>
+                        <span class="feature-cmd">rename</span>
+                        <span class="feature-cmd">limit</span>
+                        <span class="feature-cmd-more">+ more</span>
+                    </div>
+                </div>
+
+                <div class="feature-card feature-card-large">
+                    <div class="feature-card-icon">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <h3>Automations & Utilities</h3>
+                    <p>Ticket systems, invite logs, welcome messages, and starboard.</p>
+                    <div class="feature-commands">
+                        <span class="feature-cmd">ticket</span>
+                        <span class="feature-cmd">welcome</span>
+                        <span class="feature-cmd">autorole</span>
+                        <span class="feature-cmd">vanity</span>
+                        <span class="feature-cmd">alias</span>
+                        <span class="feature-cmd-more">+ more</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="cta-section" id="cta">
+        <div class="cta-inner">
+            <div class="cta-glow"></div>
+            <h2 class="cta-title">Ready to <span class="gradient-text">elevate</span> your server?</h2>
+            <p class="cta-subtitle">Invite Seize to your server today.</p>
+            <a href="https://discord.com/oauth2/authorize?client_id=1511857662759796886&scope=bot+applications.commands&permissions=8"
+                class="btn btn-primary btn-large" id="cta-invite-btn">
+                <i class="fa-brands fa-discord"></i>
+                Add Seize to Discord
+            </a>
+        </div>
+    </section>
+
+    
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <img src="seize bot logo.jpg" alt="Seize Logo" class="nav-logo-img">
+                    <span>seize</span>
+                </div>
+                <p class="footer-tagline">A cohesive, high-performance bot built for modern communities.</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-col">
+                    <h4>Product</h4>
+                    <a href="commands.html">Commands</a>
+                    <a href="support.html">Support</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Links</h4>
+                    <a
+                        href="https://discord.com/oauth2/authorize?client_id=1511857662759796886&scope=bot+applications.commands&permissions=8">Invite
+                        Bot</a>
+                    <a href="support.html">Discord Server</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Seize. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.body.classList.add('loaded');
+            }, 1200);
+        });
+
+        
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature-card, .section-title, .section-subtitle, .section-label, .cta-inner, .hero-pill').forEach(el => {
+            observer.observe(el);
+        });
+
+        
+        document.addEventListener('mousemove', (e) => {
+            const glow = document.querySelector('.bg-glow');
+            if (glow) {
+                const x = (e.clientX / window.innerWidth) * 100;
+                const y = (e.clientY / window.innerHeight) * 100;
+                glow.style.background = `radial-gradient(ellipse 600px 400px at ${x}% ${y}%, rgba(120, 56, 56, 0.08), transparent 70%)`;
+            }
+        });
+    </script>
+</body>
+
+</html>
