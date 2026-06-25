@@ -229,6 +229,72 @@ const allCommands = {
             "description": "Manage blacklisted words",
             "arguments": "none",
             "permissions": "Administrator"
+        },
+        {
+            "name": "sticky",
+            "description": "Configure sticky messages in channels",
+            "arguments": "none",
+            "permissions": "Manage Messages"
+        },
+        {
+            "name": "sticky set",
+            "description": "Set or update the sticky note in the current channel",
+            "arguments": "<content>",
+            "permissions": "Manage Messages"
+        },
+        {
+            "name": "sticky remove",
+            "description": "Remove the sticky note from the current channel",
+            "arguments": "none",
+            "permissions": "Manage Messages"
+        },
+        {
+            "name": "reactionrole",
+            "description": "Manage reaction roles (assign roles on reactions)",
+            "arguments": "none",
+            "permissions": "Manage Roles, Administrator"
+        },
+        {
+            "name": "rr add",
+            "description": "Add a reaction role to a message",
+            "arguments": "<message_id> <emoji> <role>",
+            "permissions": "Manage Roles, Administrator"
+        },
+        {
+            "name": "rr remove",
+            "description": "Remove a reaction role from a message",
+            "arguments": "<message_id> <emoji>",
+            "permissions": "Manage Roles, Administrator"
+        },
+        {
+            "name": "rr list",
+            "description": "List all active reaction roles in this server",
+            "arguments": "none",
+            "permissions": "Manage Roles, Administrator"
+        },
+        {
+            "name": "filter",
+            "description": "Manage filtered words in the server",
+            "arguments": "none",
+            "permissions": "Manage Messages"
+        },
+        {
+            "name": "filter add",
+            "description": "Add a word to the filter list to be auto-deleted",
+            "arguments": "<word>",
+            "permissions": "Manage Messages"
+        },
+        {
+            "name": "filter remove",
+            "description": "Remove a word from the filter list",
+            "arguments": "<word>",
+            "permissions": "Manage Messages"
+        },
+        {
+            "name": "filter list",
+            "description": "List all filtered words in this server",
+            "arguments": "none",
+            "permissions": "Manage Messages"
         }
     ],
     "management": [
