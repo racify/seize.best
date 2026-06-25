@@ -413,10 +413,16 @@ const allCommands = {
             "permissions": "Administrator"
         },
         {
-            "name": "steal",
-            "description": "Adds an emoji from another server directly to yours",
-            "arguments": "<emoji> [name]",
-            "permissions": "none"
+            "name": "emoji",
+            "description": "Manage server emojis",
+            "arguments": "none",
+            "permissions": "Manage Expressions"
+        },
+        {
+            "name": "emoji steal",
+            "description": "Steal one or more custom emojis into this server",
+            "arguments": "<emoji>[emoji ...]",
+            "permissions": "Manage Expressions"
         },
         {
             "name": "channelinfo",
