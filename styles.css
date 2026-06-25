@@ -23,7 +23,6 @@
     --max-width: 1100px;
 }
 
-
 *,
 *::before,
 *::after {
@@ -51,7 +50,6 @@ a {
     color: inherit;
 }
 
-
 .bg-glow {
     position: fixed;
     inset: 0;
@@ -59,7 +57,6 @@ a {
     pointer-events: none;
     transition: background 0.4s ease;
 }
-
 
 #page-loader {
     position: fixed;
@@ -102,7 +99,6 @@ body.loaded #page-loader {
     visibility: hidden;
     pointer-events: none;
 }
-
 
 .nav-wrapper {
     position: fixed;
@@ -191,7 +187,6 @@ body.loaded #page-loader {
     transform: translateY(-1px);
 }
 
-
 .hero {
     position: relative;
     padding: 200px 24px 140px;
@@ -243,7 +238,6 @@ body.loaded #page-loader {
     gap: 14px;
 }
 
-
 .btn {
     display: inline-flex;
     align-items: center;
@@ -288,7 +282,6 @@ body.loaded #page-loader {
     font-size: 16px;
 }
 
-
 .hero-interactive-container {
     flex-shrink: 0;
     width: 440px;
@@ -318,7 +311,6 @@ body.loaded #page-loader {
 .hero-logo-center:hover .hero-center-logo {
     transform: scale(1.08) rotate(4deg);
 }
-
 
 .floating-pill {
     position: absolute;
@@ -362,7 +354,6 @@ body.loaded #page-loader {
         margin-top: 5px;
     }
 }
-
 
 .pill-top-left {
     top: 10px;
@@ -416,7 +407,6 @@ body.loaded #page-loader {
     font-family: 'Inter', monospace;
     white-space: nowrap;
 }
-
 
 .features {
     padding: 100px 24px 80px;
@@ -591,7 +581,6 @@ body.loaded #page-loader {
     letter-spacing: -0.01em;
 }
 
-
 .cta-section {
     padding: 120px 24px;
     display: flex;
@@ -638,7 +627,6 @@ body.loaded #page-loader {
     margin-bottom: 40px;
     line-height: 1.6;
 }
-
 
 footer {
     border-top: 1px solid var(--card-border);
@@ -717,7 +705,6 @@ footer {
     color: var(--text-muted);
 }
 
-
 @keyframes fadeSlideDown {
     from {
         opacity: 0;
@@ -753,7 +740,6 @@ footer {
         transform: translateX(0);
     }
 }
-
 
 @media (max-width: 900px) {
     .hero-inner {
@@ -841,8 +827,6 @@ footer {
         padding: 60px 20px 40px;
     }
 }
-
-
 
 .search-bar {
     background-color: var(--bg-card);
@@ -1014,7 +998,6 @@ footer {
     color: var(--accent-soft);
 }
 
-
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -1038,7 +1021,6 @@ header {
     font-size: 1.2rem;
     font-weight: 600;
 }
-
 
 .landing-header {
     display: flex;
@@ -1075,11 +1057,6 @@ header {
 .nav-links a.active {
     color: var(--text-primary);
 }
-
-
-/* ==========================================================================
-   Documentation Page Styles
-   ========================================================================== */
 
 .docs-page {
     padding-top: 140px;
@@ -1168,12 +1145,10 @@ header {
     color: var(--text-primary);
 }
 
-/* Docs Main Content */
 .docs-content-container {
     min-width: 0;
 }
 
-/* Search bar inside docs */
 .docs-search-wrapper {
     margin-bottom: 40px;
     display: flex;
@@ -1220,7 +1195,6 @@ header {
     font-size: 14px;
 }
 
-/* Docs Section Styling */
 .docs-section {
     display: none;
     animation: docsFadeIn 0.4s ease;
@@ -1263,7 +1237,6 @@ header {
     color: var(--text-primary);
 }
 
-/* Alert box */
 .docs-alert {
     display: flex;
     gap: 16px;
@@ -1314,7 +1287,6 @@ header {
     color: #10b981;
 }
 
-/* Code block style */
 .terminal-block {
     background: #050505;
     border: 1px solid var(--card-border);
@@ -1360,7 +1332,6 @@ header {
     margin-right: 4px;
 }
 
-/* List styling */
 .docs-list {
     margin: 16px 0 24px 20px;
     display: flex;
@@ -1378,7 +1349,6 @@ header {
     color: var(--text-primary);
 }
 
-/* Quick Navigation Cards */
 .docs-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -1419,7 +1389,6 @@ header {
     line-height: 1.5;
 }
 
-/* Responsive adjustments for docs page */
 @media (max-width: 1024px) {
     .docs-layout {
         grid-template-columns: 240px 1fr;

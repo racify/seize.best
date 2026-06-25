@@ -27,15 +27,15 @@
 
 <body class="docs-page">
 
-    <!-- Page Loader -->
+    
     <div id="page-loader">
         <img src="seize bot logo.jpg" alt="Loading" class="loader-img">
     </div>
 
-    <!-- Background Glow -->
+    
     <div class="bg-glow"></div>
 
-    <!-- Floating Navigation Bar -->
+    
     <div class="nav-wrapper">
         <nav class="nav-bar">
             <div class="nav-left">
@@ -62,9 +62,9 @@
         </nav>
     </div>
 
-    <!-- Main Docs Layout -->
+    
     <div class="docs-layout">
-        <!-- Sidebar Navigation -->
+        
         <aside class="docs-sidebar" id="docsSidebar">
             <div class="docs-sidebar-title">Chapters</div>
             <div class="docs-sidebar-item active" data-section="getting-started" id="tab-getting-started">
@@ -93,9 +93,9 @@
             </div>
         </aside>
 
-        <!-- Content Area -->
+        
         <div class="docs-content-container">
-            <!-- Top Search Bar & Header Wrapper -->
+            
             <div class="docs-search-wrapper">
                 <h1 id="sectionHeader">Getting Started</h1>
                 <div class="docs-search-bar">
@@ -104,10 +104,10 @@
                 </div>
             </div>
 
-            <!-- Main Documentation Panels -->
+            
             <main class="docs-main-content">
 
-                <!-- SECTION: GETTING STARTED -->
+                
                 <section class="docs-section active" id="sec-getting-started">
                     <h2 class="docs-section-title">Introduction to Seize</h2>
                     <p class="docs-text">
@@ -154,7 +154,7 @@
                     </div>
                 </section>
 
-                <!-- SECTION: SECURITY & ANTINUKE -->
+                
                 <section class="docs-section" id="sec-security">
                     <h2 class="docs-section-title">Security & Antinuke</h2>
                     <p class="docs-text">
@@ -214,7 +214,7 @@
                     </div>
                 </section>
 
-                <!-- SECTION: MODERATION & JAIL -->
+                
                 <section class="docs-section" id="sec-moderation">
                     <h2 class="docs-section-title">Moderation & Jail Rooms</h2>
                     <p class="docs-text">
@@ -260,7 +260,7 @@
                     </ol>
                 </section>
 
-                <!-- SECTION: VOICEMASTER -->
+                
                 <section class="docs-section" id="sec-voicemaster">
                     <h2 class="docs-section-title">Voicemaster (Dynamic VCs)</h2>
                     <p class="docs-text">
@@ -300,7 +300,7 @@
                     </ol>
                 </section>
 
-                <!-- SECTION: ECONOMY & CASINO -->
+                
                 <section class="docs-section" id="sec-economy">
                     <h2 class="docs-section-title">Economy & Casino Games</h2>
                     <p class="docs-text">
@@ -353,7 +353,7 @@
                     </ul>
                 </section>
 
-                <!-- SECTION: TICKETS & AUTOMATIONS -->
+                
                 <section class="docs-section" id="sec-tickets">
                     <h2 class="docs-section-title">Tickets & Automations</h2>
                     <p class="docs-text">
@@ -404,7 +404,7 @@
         </div>
     </div>
 
-    <!-- Footer -->
+    
     <footer>
         <div class="footer-inner">
             <div class="footer-brand">
@@ -435,16 +435,15 @@
         </div>
     </footer>
 
-    <!-- Documentation Logic Scripts -->
+    
     <script>
-        // Page Loader Fader
+
         window.addEventListener('load', () => {
             setTimeout(() => {
                 document.body.classList.add('loaded');
             }, 1000);
         });
 
-        // Mouse Background Glow Follower
         document.addEventListener('mousemove', (e) => {
             const glow = document.querySelector('.bg-glow');
             if (glow) {
@@ -454,9 +453,8 @@
             }
         });
 
-        // Interactive Section Switching
         function switchSection(sectionId) {
-            // Remove active classes from all sections and tabs
+
             document.querySelectorAll('.docs-section').forEach(sec => {
                 sec.classList.remove('active');
             });
@@ -464,7 +462,6 @@
                 tab.classList.remove('active');
             });
 
-            // Activate target section and tab
             const targetSec = document.getElementById('sec-' + sectionId);
             const targetTab = document.getElementById('tab-' + sectionId);
             
@@ -472,23 +469,20 @@
                 targetSec.classList.add('active');
                 targetTab.classList.add('active');
                 
-                // Update Page Title / Header
+
                 const tabLabel = targetTab.querySelector('span').innerText;
                 document.getElementById('sectionHeader').innerText = tabLabel;
 
-                // Smooth scroll to top of documentation content area
                 window.scrollTo({
                     top: document.querySelector('.docs-search-wrapper').offsetTop - 120,
                     behavior: 'smooth'
                 });
             }
 
-            // Clear search when switching tabs
             document.getElementById('docsSearchInput').value = '';
             filterDocumentation('');
         }
 
-        // Add event listeners to sidebar items
         document.querySelectorAll('.docs-sidebar-item').forEach(item => {
             item.addEventListener('click', (e) => {
                 const section = e.currentTarget.dataset.section;
@@ -496,7 +490,6 @@
             });
         });
 
-        // Copy Code Blocks to Clipboard
         function copyCommand(button, text) {
             navigator.clipboard.writeText(text).then(() => {
                 const icon = button.querySelector('i');
@@ -509,7 +502,6 @@
             });
         }
 
-        // Live Search Documentation
         const searchInput = document.getElementById('docsSearchInput');
         searchInput.addEventListener('input', (e) => {
             filterDocumentation(e.target.value.toLowerCase());
@@ -519,11 +511,10 @@
             const activeSection = document.querySelector('.docs-section.active');
             if (!activeSection) return;
 
-            // Find all text blocks inside the active section
             const textBlocks = activeSection.querySelectorAll('.docs-text, .docs-subsection-title, .docs-alert, .terminal-block, .docs-list, .docs-list-item');
 
             if (!query) {
-                // If query is empty, restore visibility of all blocks
+
                 textBlocks.forEach(block => {
                     block.style.display = '';
                 });
@@ -534,13 +525,13 @@
                 const text = block.innerText.toLowerCase();
                 if (text.includes(query)) {
                     block.style.display = '';
-                    // If it is a list item, make sure parent list is visible
+
                     if (block.classList.contains('docs-list-item')) {
                         const parent = block.closest('.docs-list');
                         if (parent) parent.style.display = '';
                     }
                 } else {
-                    // Check if block contains nested elements that might match
+
                     let childMatch = false;
                     block.querySelectorAll('*').forEach(child => {
                         if (child.innerText && child.innerText.toLowerCase().includes(query)) {
