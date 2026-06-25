@@ -139,10 +139,46 @@ const allCommands = {
             "permissions": "none"
         },
         {
+            "name": "nuke",
+            "description": "Deletes and recreates the channel with identical settings",
+            "arguments": "[channel]",
+            "permissions": "none"
+        },
+        {
             "name": "history",
             "description": "Shows an overview of bans, kicks, and jails for a member",
             "arguments": "<user>",
             "permissions": "none"
+        },
+        {
+            "name": "snipe",
+            "description": "Snipe the latest deleted message in this channel",
+            "arguments": "[index]",
+            "permissions": "none"
+        },
+        {
+            "name": "editsnipe",
+            "description": "Snipe the latest edited message in this channel",
+            "arguments": "[index]",
+            "permissions": "none"
+        },
+        {
+            "name": "reactionsnipe",
+            "description": "Snipe the latest reaction that was removed in this channel",
+            "arguments": "none",
+            "permissions": "none"
+        },
+        {
+            "name": "reactionhistory",
+            "description": "See logged reactions that were removed from a message",
+            "arguments": "<message_link>",
+            "permissions": "Manage Messages"
+        },
+        {
+            "name": "clearsnipe",
+            "description": "Clear all snipe results for this channel (messages, edits, reactions)",
+            "arguments": "none",
+            "permissions": "Manage Messages"
         }
     ],
     "automation": [
@@ -153,15 +189,15 @@ const allCommands = {
             "permissions": "Administrator"
         },
         {
-            "name": "autoresponse list",
-            "description": "List all auto-responses",
-            "arguments": "none",
-            "permissions": "Administrator"
-        },
-        {
             "name": "autoresponse remove",
             "description": "Remove an auto-response by ID",
             "arguments": "<response_id>",
+            "permissions": "Administrator"
+        },
+        {
+            "name": "autoresponse list",
+            "description": "List all auto-responses",
+            "arguments": "none",
             "permissions": "Administrator"
         },
         {
@@ -317,6 +353,12 @@ const allCommands = {
             "permissions": "Manage Messages"
         },
         {
+            "name": "embed color",
+            "description": "Set side strip color of the embed",
+            "arguments": "<hex_color>",
+            "permissions": "Manage Messages"
+        },
+        {
             "name": "embed json",
             "description": "Parse raw JSON code into embed",
             "arguments": "<data>",
@@ -353,27 +395,21 @@ const allCommands = {
             "permissions": "Manage Messages"
         },
         {
-            "name": "embed color",
-            "description": "Set side strip color of the embed",
-            "arguments": "<hex_color>",
-            "permissions": "Manage Messages"
-        },
-        {
             "name": "logs",
             "description": "Manage logging settings",
             "arguments": "none",
             "permissions": "Administrator"
         },
         {
-            "name": "logs toggle",
-            "description": "Toggle log events",
-            "arguments": "<event>",
-            "permissions": "Administrator"
-        },
-        {
             "name": "logs channel",
             "description": "Set logging channel",
             "arguments": "<channel>",
+            "permissions": "Administrator"
+        },
+        {
+            "name": "logs toggle",
+            "description": "Toggle log events",
+            "arguments": "<event>",
             "permissions": "Administrator"
         },
         {
@@ -473,6 +509,12 @@ const allCommands = {
             "description": "Displays historical nickname changes for a user",
             "arguments": "[user]",
             "permissions": "none"
+        },
+        {
+            "name": "afk",
+            "description": "Set your AFK status with an optional message",
+            "arguments": "[reason]",
+            "permissions": "none"
         }
     ],
     "economy": [
@@ -534,18 +576,6 @@ const allCommands = {
             "name": "givemoney",
             "description": "Spawn money into someone's account (owner only)",
             "arguments": "<user> <amount>",
-            "permissions": "none"
-        },
-        {
-            "name": "shop",
-            "description": "Opens the server store",
-            "arguments": "none",
-            "permissions": "none"
-        },
-        {
-            "name": "buy",
-            "description": "Buys an item from the shop",
-            "arguments": "<item>",
             "permissions": "none"
         }
     ],
@@ -633,15 +663,27 @@ const allCommands = {
             "permissions": "none"
         },
         {
-            "name": "vc reject",
-            "description": "Reject user from voice channel",
-            "arguments": "<user>",
+            "name": "vc limit",
+            "description": "Set user limit for your channel",
+            "arguments": "<limit>",
+            "permissions": "none"
+        },
+        {
+            "name": "vc unlock",
+            "description": "Unlock your temporary voice channel",
+            "arguments": "none",
             "permissions": "none"
         },
         {
             "name": "vc claim",
             "description": "Claim ownership of empty voice channel",
             "arguments": "none",
+            "permissions": "none"
+        },
+        {
+            "name": "vc reject",
+            "description": "Reject user from voice channel",
+            "arguments": "<user>",
             "permissions": "none"
         },
         {
@@ -661,18 +703,6 @@ const allCommands = {
             "description": "Permit user to join locked channel",
             "arguments": "<user>",
             "permissions": "none"
-        },
-        {
-            "name": "vc limit",
-            "description": "Set user limit for your channel",
-            "arguments": "<limit>",
-            "permissions": "none"
-        },
-        {
-            "name": "vc unlock",
-            "description": "Unlock your temporary voice channel",
-            "arguments": "none",
-            "permissions": "none"
         }
     ],
     "vanity": [
@@ -680,18 +710,6 @@ const allCommands = {
             "name": "vanity",
             "description": "vanity reward system commands",
             "arguments": "none",
-            "permissions": "Administrator"
-        },
-        {
-            "name": "vanity set",
-            "description": "set the vanity text to check for in custom statuses",
-            "arguments": "<text>",
-            "permissions": "Administrator"
-        },
-        {
-            "name": "vanity channel",
-            "description": "set the channel for thank-you messages",
-            "arguments": "<channel>",
             "permissions": "Administrator"
         },
         {
@@ -704,6 +722,18 @@ const allCommands = {
             "name": "vanity message",
             "description": "set the thank-you message",
             "arguments": "<text>",
+            "permissions": "Administrator"
+        },
+        {
+            "name": "vanity set",
+            "description": "set the vanity text to check for in custom statuses",
+            "arguments": "<text>",
+            "permissions": "Administrator"
+        },
+        {
+            "name": "vanity channel",
+            "description": "set the channel for thank-you messages",
+            "arguments": "<channel>",
             "permissions": "Administrator"
         }
     ],
@@ -783,6 +813,30 @@ const allCommands = {
             "permissions": "none"
         },
         {
+            "name": "ticket close",
+            "description": "Close this ticket",
+            "arguments": "[reason]",
+            "permissions": "none"
+        },
+        {
+            "name": "ticket add",
+            "description": "Add a user to this ticket channel",
+            "arguments": "<user>",
+            "permissions": "none"
+        },
+        {
+            "name": "ticket setup",
+            "description": "Configure the ticket system interactively",
+            "arguments": "none",
+            "permissions": "Administrator"
+        },
+        {
+            "name": "ticket reset",
+            "description": "Wipe all ticket data and config for this server",
+            "arguments": "none",
+            "permissions": "Administrator"
+        },
+        {
             "name": "ticket rename",
             "description": "Rename this ticket channel",
             "arguments": "<name>",
@@ -811,30 +865,32 @@ const allCommands = {
             "description": "Post the ticket panel in a channel",
             "arguments": "[channel]",
             "permissions": "Administrator"
-        },
+        }
+    ],
+    "giveaway": [
         {
-            "name": "ticket close",
-            "description": "Close this ticket",
-            "arguments": "[reason]",
+            "name": "giveaway",
+            "description": "Giveaway management commands.",
+            "arguments": "none",
             "permissions": "none"
         },
         {
-            "name": "ticket add",
-            "description": "Add a user to this ticket channel",
-            "arguments": "<user>",
-            "permissions": "none"
+            "name": "giveaway create",
+            "description": "Start a giveaway  \u2014  e.g. ,gw create 1h 10k Robux",
+            "arguments": "<duration> <prize>",
+            "permissions": "Manage Server"
         },
         {
-            "name": "ticket setup",
-            "description": "Configure the ticket system interactively",
-            "arguments": "none",
-            "permissions": "Administrator"
+            "name": "giveaway end",
+            "description": "End an active giveaway early",
+            "arguments": "<message_id>",
+            "permissions": "Manage Server"
         },
         {
-            "name": "ticket reset",
-            "description": "Wipe all ticket data and config for this server",
-            "arguments": "none",
-            "permissions": "Administrator"
+            "name": "giveaway reroll",
+            "description": "Reroll the winner of an ended giveaway",
+            "arguments": "<message_id>",
+            "permissions": "Manage Server"
         }
     ]
 };
